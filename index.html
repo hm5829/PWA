@@ -38,7 +38,20 @@
 <meta name="apple-mobile-web-app-title" content="可愛小動物">
 <meta name="msapplication-starturl" content="/https://hm5829.github.io/PWA/">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-                            
+        
+<script>
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
+</script>                    
 	</head>
 	<body>
 
