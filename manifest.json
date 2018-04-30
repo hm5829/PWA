@@ -1,9 +1,12 @@
 {
   "name": "Dog",
-  "short_name": "dg",
+  "short_name": "dog",
   "lang": "zh-TW",
   "start_url": "/https://hm5829.github.io/PWA/",
   "display": "standalone",
+  "scope": "/",
+  "orientation": "any",
+  "related_applications": [],
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
