@@ -4,6 +4,8 @@
   "lang": "zh-TW",
   "start_url": "/https://hm5829.github.io/PWA/",
   "display": "standalone",
+  "theme_color": "#E6E6FA",
+  "background_color": "#E6E6FA",
  "icons": [
   {
    "src": "\/android-icon-36x36.png",
