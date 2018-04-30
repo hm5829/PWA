@@ -1,27 +1,8 @@
 const cacheVersion = 'v1';
 const filesToCache = [
-  '0.chunk.js',
-  'favicon.ico',
-  'index.html',
-  'inline.bundle.js',
-  'main.bundle.js',
-  'polyfills.bundle.js',
+   'index.html',
   'register_sw.js',
-  'styles.bundle.css',
-  'vendor.bundle.js',
-  'assets/images/android_048.png',
-  'assets/images/android_057.png',
-  'assets/images/android_072.png',
-  'assets/images/android_076.png',
-  'assets/images/android_096.png',
-  'assets/images/android_114.png',
-  'assets/images/android_120.png',
-  'assets/images/android_144.png',
-  'assets/images/android_152.png',
-  'assets/images/android_167.png',
-  'assets/images/android_180.png',
-  'assets/images/android_192.png',
-  'assets/images/android_512.png'
+  
 ];
 self.addEventListener('install', event => {
   console.log('[ServiceWorker] Install');
@@ -47,7 +28,7 @@ self.addEventListener('fetch', event => {
 
 importScripts('sw-toolbox.js');
 
-toolbox.precache(["index.html","style/style.css"]);
+toolbox.precache(["index.html"]);
 
 toolbox.router.get('/images/*', toolbox.cacheFirst);
 
