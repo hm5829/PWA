@@ -1,11 +1,24 @@
-'use strict';
+// sw.js ¤å¥ó
 
-importScripts('sw-toolbox.js');
 
-toolbox.precache(["index.html","style/style.css"]);
+self.addEventListener('install', function (e) {
+  
+});
 
-toolbox.router.get('/images/*', toolbox.cacheFirst);
 
-toolbox.router.get('/*', toolbox.networkFirst, {
-  networkTimeoutSeconds: 5
+self.addEventListener('activate', function (e) {
+  
+});
+
+
+self.addEventLisener('fetch', function (e) {
+    e.respondWith(caches.match(e.request)
+        .then(function (response) {
+            if (response) {
+                return response;
+            }
+         
+            return fetchAndCache(e.request);
+        })
+    );
 });
