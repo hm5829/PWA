@@ -1,18 +1,45 @@
 const cacheVersion = 'v1';
 const filesToCache = [
-   'index.html',
+  '0.chunk.js',
+  'favicon.ico',
+  'index.html',
+  'inline.bundle.js',
+  'main.bundle.js',
+  'polyfills.bundle.js',
   'register_sw.js',
-  
+  'styles.bundle.css',
+  'vendor.bundle.js',
+  'assets/images/android_048.png',
+  'assets/images/android_057.png',
+  'assets/images/android_072.png',
+  'assets/images/android_076.png',
+  'assets/images/android_096.png',
+  'assets/images/android_114.png',
+  'assets/images/android_120.png',
+  'assets/images/android_144.png',
+  'assets/images/android_152.png',
+  'assets/images/android_167.png',
+  'assets/images/android_180.png',
+  'assets/images/android_192.png',
+  'assets/images/android_512.png'
 ];
 self.addEventListener('install', event => {
   console.log('[ServiceWorker] Install');
+  event.waitUntil(
+    caches.open(cacheVersion)
+    .then(cache => {
+      console.log('[ServiceWorker] Caching app shell');
+      return cache.addAll(filesToCache);
+    })
+  );
 });
 self.addEventListener('activate', event => {
-  event.waitUntil(clients.claim());
+  console.log('[ServiceWorker] Activate');
 });
 self.addEventListener('fetch', event => {
   console.log('[ServiceWorker] fetch', event.request);
-});
-toolbox.router.get('/*', toolbox.networkFirst, {
-  networkTimeoutSeconds: 5
+  event.respondWith(
+    caches.match(event.request)
+    .then(response => response || fetch(event.request))
+  );
 });
