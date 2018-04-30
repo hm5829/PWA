@@ -2,7 +2,10 @@
  "name": "Cute Animals",
   "short_name": "可愛小動物",
   "lang": "zh-TW",
+  "description": "cute",
   "start_url": "/https://hm5829.github.io/PWA/",
+  "theme_color": "#E6E6FA",
+  "background_color": "#E6E6FA",
   "display": "standalone",
  "icons": [
   {
